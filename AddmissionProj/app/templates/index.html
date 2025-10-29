@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>School Addmission Management System</h1>
+    <div  class="container">
+<section class="h-100 h-custom" style="background-color: #8fc4b7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
+            class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+            alt="Sample photo">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration Info</h3>
+
+            <form action="." class="px-md-2" method="post">
+            {% csrf_token %} 
+
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="form3Example1q">Name</label>
+                <input name="name" type="text" id="form3Example1q" class="form-control" required />
+                
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                </div>
+
+                 <div class="mb-4">
+             <!-- Class dropdown -->
+              <label class="form-label" for="form3Example1q">Class :</label>
+              <select name="class" class="select" data-mdb-select-init required>
+              <option value="" disabled selected>Select class</option>
+              <option value="class 1">Class 1</option>
+              <option value="class 2">Class 2</option>
+              <option value="class 3">Class 3</option>
+              <option value="class 4">Class 4</option>
+              <option value="class 5">Class 5</option>
+               </select>
+            </div>
+
+            <!-- Gender Radio button -->
+            <div class="col-md-6 mb-4">
+            <label class="form-label d-block mb-2">Gender</label>
+
+                <div class="form-check form-check-inline">
+               <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required />
+               <label class="form-check-label" for="male">Male</label>
+               </div>
+
+                <div class="form-check form-check-inline">
+                 <input class="form-check-input" type="radio" name="gender" id="female" value="Female" required />
+                 <label class="form-check-label" for="female">Female</label>
+                 </div>
+                </div>
+
+                <!-- Extracurricular Activities checkboxes -->
+                <label class="form-label fw-bold mb-2">Select Extracurricular Activities:</label>
+                  <div class="form-check">
+                   <input class="form-check-input" type="checkbox" name="activities" value="academic" id="checkAcademic">
+                   <label class="form-check-label" for="checkAcademic">
+                    Academic & Educational
+                   </label>
+                </div>
+
+                <div class="form-check">
+                   <input class="form-check-input" type="checkbox" name="activities" value="creative" id="checkCreative">
+                   <label class="form-check-label" for="checkCreative">
+                    Creative & Arts
+                   </label>
+                </div>
+
+               <div class="form-check">
+               <input class="form-check-input" type="checkbox" name="activities" value="sports" id="checkSports">
+               <label class="form-check-label" for="checkSports">
+                 Sports
+                </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="activities" value="community" id="checkCommunity">
+              <label class="form-check-label" for="checkCommunity">
+                Community and Social Service
+              </label>
+             </div>
+
+           <div class="form-check">
+             <input class="form-check-input" type="checkbox" name="activities" value="leadership" id="checkLeadership">
+             <label class="form-check-label" for="checkLeadership">
+               Leadership
+             </label>
+            </div>
+
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="activities" value="technology" id="checkTechnology">
+            <label class="form-check-label" for="checkTechnology">
+            Technology & Innovation
+            </label>
+            </div>
+
+            <!-- Image Upload -->
+           <label>Image Upload
+             <input type="file" name="myImage" accept="image/png, image/gif, image/jpeg" required/>
+           </label>
+
+           <!-- Document Upload -->
+          <div class="mb-3">
+             <label for="documentUpload" class="form-label">Upload Document (DOC/PDF)</label>
+               <input class="form-control" type="file" id="documentUpload" name="file" accept=".doc, .docx, .pdf" required >
+             </div>
+
+              
+
+              <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+
+                <!-- Submit button -->
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Submit</button>
+
+            </form>
+
+            {% if user.is_authenticated %}
+            <a href="{% url 'list' %}" type="button" class="btn btn-success btn-lg mt-3">View All Student</a>
+            {% endif %}
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
